@@ -1,0 +1,26 @@
+#define BLYNK_PRINT Serial
+#define BLYNK_TEMPLATE_ID "TMPL6QlDq80gi"
+#define BLYNK_TEMPLATE_NAME "Led2"
+#define BLYNK_AUTH_TOKEN "ANjmxWw1QtiuzLdR5kZBf8cHwbddCgZG"
+
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
+
+char auth[] = BLYNK_AUTH_TOKEN;
+char ssid[] = "Eyzen Girişimcilik 2.4GHz";
+char pass[] = "eyzen2023";
+
+BLYNK_WRITE(V0) {
+  digitalWrite(D0, param.asInt());
+}
+
+void setup()
+{pinMode(D0,OUTPUT);
+
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+}
+
+void loop()
+{
+  Blynk.run();
+}
